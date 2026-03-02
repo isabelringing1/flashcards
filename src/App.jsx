@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useEffect } from 'react'
 import { getLanguage } from './data/languages'
 import useWeekly from './hooks/useWeekly'
 import Sidebar from './components/Sidebar'
@@ -21,6 +21,7 @@ export default function App() {
   const weekly = useWeekly(languageData)
   const [activeDeck, setActiveDeck] = useState(null)
   const [activeDeckName, setActiveDeckName] = useState('')
+  const [deckKey, setDeckKey] = useState(0)
 
   const loadSet = useCallback((set, name) => {
     setActiveDeck([...set.cards])
@@ -44,10 +45,33 @@ export default function App() {
     setActiveDeckName('Remix')
   }, [weekly.currentSet, weekly.previousSets])
 
+  const loadRandom = useCallback(() => {
+    const sets = weekly.allSets
+    if (sets.length === 0) return
+    const set = sets[Math.floor(Math.random() * sets.length)]
+    loadSet(set, set.name)
+  }, [weekly.allSets, loadSet])
+
+  const handleShuffle = useCallback(() => {
+    if (activeDeck) {
+      setActiveDeck(shuffle(activeDeck))
+      setDeckKey((k) => k + 1)
+    }
+  }, [activeDeck])
+
+  // Auto-load weekly set on mount if confirmed and no deck active
+  useEffect(() => {
+    if (weekly.currentSet && !weekly.needsNewSet && !activeDeck) {
+      loadSet(weekly.currentSet, `This Week: ${weekly.currentSet.name}`)
+    }
+  }, [weekly.currentSet, weekly.needsNewSet])
+
   function handleConfirmWeekly() {
     const set = weekly.confirmSet()
     if (set) loadSet(set, `This Week: ${set.name}`)
   }
+
+  const hasRemixSets = (weekly.currentSet ? 1 : 0) + weekly.previousSets.length >= 2
 
   return (
     <div className="app">
@@ -62,14 +86,20 @@ export default function App() {
         currentSet={weekly.currentSet}
         onPracticeWeekly={loadWeeklySet}
         onRemix={loadRemix}
+        onRandom={loadRandom}
         previousSets={weekly.previousSets}
         allSets={weekly.allSets}
         onSelectSet={(set) => loadSet(set)}
-        hasRemixSets={!!(weekly.currentSet || weekly.previousSets.length > 0)}
+        hasRemixSets={hasRemixSets}
       />
       <main className="main">
         {activeDeck && activeDeck.length > 0 ? (
-          <FlashcardDeck key={activeDeckName} cards={activeDeck} name={activeDeckName} />
+          <FlashcardDeck
+            key={`${activeDeckName}-${deckKey}`}
+            cards={activeDeck}
+            name={activeDeckName}
+            onShuffle={handleShuffle}
+          />
         ) : (
           <div className="empty-state">
             <div className="empty-icon">&#x1F0CF;</div>

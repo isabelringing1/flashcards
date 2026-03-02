@@ -1,12 +1,14 @@
 import { useState, useEffect } from 'react'
 import Flashcard from './Flashcard'
 
-export default function FlashcardDeck({ cards, name }) {
+export default function FlashcardDeck({ cards, name, onShuffle }) {
   const [deck, setDeck] = useState([])
   const [idx, setIdx] = useState(0)
   const [known, setKnown] = useState([])
   const [unknown, setUnknown] = useState([])
   const [flipped, setFlipped] = useState(false)
+  const [exitDirection, setExitDirection] = useState(null)
+  const [animating, setAnimating] = useState(false)
 
   useEffect(() => {
     setDeck([...cards])
@@ -14,21 +16,36 @@ export default function FlashcardDeck({ cards, name }) {
     setKnown([])
     setUnknown([])
     setFlipped(false)
+    setExitDirection(null)
+    setAnimating(false)
   }, [cards, name])
 
   const done = idx >= deck.length
   const card = deck[idx]
 
   function markKnown() {
+    if (animating) return
     setKnown((k) => [...k, card])
+    setExitDirection('right')
+    setAnimating(true)
+  }
+
+  function markUnknown() {
+    if (animating) return
+    setUnknown((u) => [...u, card])
+    setExitDirection('left')
+    setAnimating(true)
+  }
+
+  function handleAnimationEnd() {
+    setExitDirection(null)
+    setAnimating(false)
     setFlipped(false)
     setIdx((i) => i + 1)
   }
 
-  function markUnknown() {
-    setUnknown((u) => [...u, card])
-    setFlipped(false)
-    setIdx((i) => i + 1)
+  function handleShuffle() {
+    if (onShuffle) onShuffle()
   }
 
   function keepStudyingMissed() {
@@ -78,26 +95,51 @@ export default function FlashcardDeck({ cards, name }) {
 
   if (!card) return null
 
+  const cardClass = exitDirection
+    ? `card-exit card-exit-${exitDirection}`
+    : 'card-enter'
+
   return (
     <div className="deck">
       <div className="deck-header">
         <h2 className="deck-name">{name}</h2>
-        <span className="deck-progress">
-          {idx + 1} / {deck.length}
-        </span>
+        <div className="deck-header-right">
+          <button
+            className="btn-shuffle"
+            onClick={handleShuffle}
+            title="Shuffle & restart"
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="16 3 21 3 21 8" />
+              <line x1="4" y1="20" x2="21" y2="3" />
+              <polyline points="21 16 21 21 16 21" />
+              <line x1="15" y1="15" x2="21" y2="21" />
+              <line x1="4" y1="4" x2="9" y2="9" />
+            </svg>
+          </button>
+          <span className="deck-progress">
+            {idx + 1} / {deck.length}
+          </span>
+        </div>
       </div>
 
-      <Flashcard
-        key={idx}
-        card={card}
-        flipped={flipped}
-        onFlip={() => setFlipped((f) => !f)}
-      />
+      <div
+        className={cardClass}
+        onAnimationEnd={exitDirection ? handleAnimationEnd : undefined}
+      >
+        <Flashcard
+          key={idx}
+          card={card}
+          flipped={flipped}
+          onFlip={() => setFlipped((f) => !f)}
+        />
+      </div>
 
       <div className="deck-actions">
         <button
           className="btn-action btn-unknown"
           onClick={markUnknown}
+          disabled={animating}
           title="Don't know"
         >
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
@@ -108,6 +150,7 @@ export default function FlashcardDeck({ cards, name }) {
         <button
           className="btn-action btn-known"
           onClick={markKnown}
+          disabled={animating}
           title="Know it"
         >
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -116,12 +159,6 @@ export default function FlashcardDeck({ cards, name }) {
         </button>
       </div>
 
-      <div className="progress-bar">
-        <div
-          className="progress-fill"
-          style={{ width: `${((idx) / deck.length) * 100}%` }}
-        />
-      </div>
     </div>
   )
 }

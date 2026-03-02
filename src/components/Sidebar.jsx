@@ -1,7 +1,62 @@
+import { useState } from 'react'
+import { createPortal } from 'react-dom'
+
+const DIFF_LETTER = { EASY: 'E', INTERMEDIATE: 'I', ADVANCED: 'A' }
+const DIFF_CLASS = { EASY: 'diff-easy', INTERMEDIATE: 'diff-inter', ADVANCED: 'diff-adv' }
+
+function SetButton({ set, onClick }) {
+  const [tooltipPos, setTooltipPos] = useState(null)
+  const tooltipContent = set.cards.map(c => `${c.word1} → ${c.word2}`).join('\n')
+
+  function handleMouseEnter(e) {
+    const rect = e.currentTarget.getBoundingClientRect()
+    const spaceBelow = window.innerHeight - rect.top
+    const flipUp = spaceBelow < 320
+    setTooltipPos({
+      left: rect.right + 8,
+      ...(flipUp
+        ? { bottom: window.innerHeight - rect.bottom }
+        : { top: rect.top }),
+    })
+  }
+
+  return (
+    <button
+      className="sidebar-item"
+      onClick={onClick}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={() => setTooltipPos(null)}
+    >
+      <span className="sidebar-item-name">{set.name}</span>
+      {set.difficulty && (
+        <span className={`diff-badge ${DIFF_CLASS[set.difficulty]}`}>
+          {DIFF_LETTER[set.difficulty]}
+        </span>
+      )}
+      {tooltipPos && createPortal(
+        <div
+          className="sidebar-tooltip"
+          style={{
+            display: 'block',
+            position: 'fixed',
+            top: tooltipPos.top,
+            bottom: tooltipPos.bottom,
+            left: tooltipPos.left,
+          }}
+        >
+          {tooltipContent}
+        </div>,
+        document.body
+      )}
+    </button>
+  )
+}
+
 export default function Sidebar({
   currentSet,
   onPracticeWeekly,
   onRemix,
+  onRandom,
   previousSets,
   allSets,
   onSelectSet,
@@ -25,12 +80,19 @@ export default function Sidebar({
         >
           Practice This Week's Set
         </button>
+        {hasRemixSets && (
+          <button
+            className="btn-secondary full-width"
+            onClick={onRemix}
+          >
+            Remix
+          </button>
+        )}
         <button
           className="btn-secondary full-width"
-          onClick={onRemix}
-          disabled={!hasRemixSets}
+          onClick={onRandom}
         >
-          Remix
+          Random Set
         </button>
       </div>
 
@@ -39,13 +101,11 @@ export default function Sidebar({
           <h3 className="sidebar-title">Previous Sets</h3>
           <div className="sidebar-list">
             {previousSets.map((item, i) => (
-              <button
+              <SetButton
                 key={`${item.setId}-${i}`}
-                className="sidebar-item"
+                set={item.set}
                 onClick={() => onSelectSet(item.set)}
-              >
-                {item.set.name}
-              </button>
+              />
             ))}
           </div>
         </div>
@@ -58,13 +118,11 @@ export default function Sidebar({
             <div key={theme} className="sidebar-group">
               <h4 className="sidebar-theme">{theme}</h4>
               {sets.map((set) => (
-                <button
+                <SetButton
                   key={set.id}
-                  className="sidebar-item"
+                  set={set}
                   onClick={() => onSelectSet(set)}
-                >
-                  {set.name}
-                </button>
+                />
               ))}
             </div>
           ))}
