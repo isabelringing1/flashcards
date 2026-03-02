@@ -1,0 +1,227 @@
+{
+  "language": "Korean",
+  "code": "kr",
+  "sets": [
+    {
+      "id": "kr-misc-1",
+      "name": "Misc I",
+      "theme": "Misc",
+      "cards": [
+        { "word1": "\ubb3c", "word2": "Water", "pos": 0 },
+        { "word1": "\uc0ac\ub78c", "word2": "Person", "pos": 0 },
+        { "word1": "\uc9d1", "word2": "House", "pos": 0 },
+        { "word1": "\uba39\ub2e4", "word2": "To eat", "pos": 1 },
+        { "word1": "\ud06c\ub2e4", "word2": "Big", "pos": 2 },
+        { "word1": "\uc791\ub2e4", "word2": "Small", "pos": 2 },
+        { "word1": "\uc88b\ub2e4", "word2": "Good", "pos": 2 },
+        { "word1": "\uc624\ub298", "word2": "Today", "pos": 0 },
+        { "word1": "\ub9ce\ub2e4", "word2": "Many", "pos": 2 },
+        { "word1": "\uc2dc\uac04", "word2": "Time", "pos": 0 }
+      ]
+    },
+    {
+      "id": "kr-misc-2",
+      "name": "Misc II",
+      "theme": "Misc",
+      "cards": [
+        { "word1": "\ud559\uad50", "word2": "School", "pos": 0 },
+        { "word1": "\uce5c\uad6c", "word2": "Friend", "pos": 0 },
+        { "word1": "\uc77c", "word2": "Work", "pos": 0 },
+        { "word1": "\ubcf4\ub2e4", "word2": "To see", "pos": 1 },
+        { "word1": "\uac00\ub2e4", "word2": "To go", "pos": 1 },
+        { "word1": "\uc624\ub2e4", "word2": "To come", "pos": 1 },
+        { "word1": "\uc0c8\ub86d\ub2e4", "word2": "New", "pos": 2 },
+        { "word1": "\ube60\ub974\ub2e4", "word2": "Fast", "pos": 2 },
+        { "word1": "\uc5b4\ub514", "word2": "Where", "pos": 3 },
+        { "word1": "\uc654", "word2": "Why", "pos": 3 }
+      ]
+    },
+    {
+      "id": "kr-misc-3",
+      "name": "Misc III",
+      "theme": "Misc",
+      "cards": [
+        { "word1": "\ucc45", "word2": "Book", "pos": 0 },
+        { "word1": "\ub9d0", "word2": "Word", "pos": 0 },
+        { "word1": "\ub208", "word2": "Eye", "pos": 0 },
+        { "word1": "\ub3c8", "word2": "Money", "pos": 0 },
+        { "word1": "\ubb38", "word2": "Door", "pos": 0 },
+        { "word1": "\uae38", "word2": "Road", "pos": 0 },
+        { "word1": "\ubc24", "word2": "Night", "pos": 0 },
+        { "word1": "\uaf43", "word2": "Flower", "pos": 0 },
+        { "word1": "\ub098\ubb34", "word2": "Tree", "pos": 0 },
+        { "word1": "\uc0b0", "word2": "Mountain", "pos": 0 }
+      ]
+    },
+    {
+      "id": "kr-misc-4",
+      "name": "Misc IV",
+      "theme": "Misc",
+      "cards": [
+        { "word1": "\uc54c\ub2e4", "word2": "To know", "pos": 1 },
+        { "word1": "\uc4f0\ub2e4", "word2": "To write", "pos": 1 },
+        { "word1": "\uc77d\ub2e4", "word2": "To read", "pos": 1 },
+        { "word1": "\ub4e3\ub2e4", "word2": "To listen", "pos": 1 },
+        { "word1": "\ub9d0\ud558\ub2e4", "word2": "To speak", "pos": 1 },
+        { "word1": "\uac77\ub2e4", "word2": "To walk", "pos": 1 },
+        { "word1": "\ub2ec\ub9ac\ub2e4", "word2": "To run", "pos": 1 },
+        { "word1": "\uc549\ub2e4", "word2": "To sit", "pos": 1 },
+        { "word1": "\uc11c\ub2e4", "word2": "To stand", "pos": 1 },
+        { "word1": "\uc790\ub2e4", "word2": "To sleep", "pos": 1 }
+      ]
+    },
+    {
+      "id": "kr-misc-5",
+      "name": "Misc V",
+      "theme": "Misc",
+      "cards": [
+        { "word1": "\ud589\ubcf5\ud558\ub2e4", "word2": "Happy", "pos": 2 },
+        { "word1": "\uc2ac\ud504\ub2e4", "word2": "Sad", "pos": 2 },
+        { "word1": "\ud654\ub098\ub2e4", "word2": "Angry", "pos": 1 },
+        { "word1": "\ud53c\uacf4\ud558\ub2e4", "word2": "Tired", "pos": 2 },
+        { "word1": "\ubc30\uace0\ud504\ub2e4", "word2": "Hungry", "pos": 2 },
+        { "word1": "\uc544\ud504\ub2e4", "word2": "Sick", "pos": 2 },
+        { "word1": "\ubb34\uc12d\ub2e4", "word2": "Scary", "pos": 2 },
+        { "word1": "\uc7ac\ubbf8\uc788\ub2e4", "word2": "Fun", "pos": 2 },
+        { "word1": "\uc5b4\ub835\ub2e4", "word2": "Difficult", "pos": 2 },
+        { "word1": "\uc27d\ub2e4", "word2": "Easy", "pos": 2 }
+      ]
+    },
+    {
+      "id": "kr-cooking-1",
+      "name": "Cooking I",
+      "theme": "Cooking",
+      "cards": [
+        { "word1": "\uc694\ub9ac\ud558\ub2e4", "word2": "To cook", "pos": 1 },
+        { "word1": "\uce7c", "word2": "Knife", "pos": 0 },
+        { "word1": "\ub0c4\ube44", "word2": "Pot", "pos": 0 },
+        { "word1": "\ud504\ub77c\uc774\ud32c", "word2": "Frying pan", "pos": 0 },
+        { "word1": "\uc18c\uae08", "word2": "Salt", "pos": 0 },
+        { "word1": "\uc124\ud0d5", "word2": "Sugar", "pos": 0 },
+        { "word1": "\uae30\ub984", "word2": "Oil", "pos": 0 },
+        { "word1": "\ubc25", "word2": "Rice (cooked)", "pos": 0 },
+        { "word1": "\uad6d", "word2": "Soup", "pos": 0 },
+        { "word1": "\ubc18\ucc2c", "word2": "Side dish", "pos": 0 }
+      ]
+    },
+    {
+      "id": "kr-cooking-2",
+      "name": "Cooking II",
+      "theme": "Cooking",
+      "cards": [
+        { "word1": "\uc790\ub974\ub2e4", "word2": "To cut", "pos": 1 },
+        { "word1": "\ubcf6\ub2e4", "word2": "To stir-fry", "pos": 1 },
+        { "word1": "\ub04c\uc774\ub2e4", "word2": "To boil", "pos": 1 },
+        { "word1": "\uad7d\ub2e4", "word2": "To grill", "pos": 1 },
+        { "word1": "\uc7ac\ub8cc", "word2": "Ingredient", "pos": 0 },
+        { "word1": "\uc591\ub150", "word2": "Seasoning", "pos": 0 },
+        { "word1": "\uac04\uc7a5", "word2": "Soy sauce", "pos": 0 },
+        { "word1": "\uace0\ucd94\uc7a5", "word2": "Red pepper paste", "pos": 0 },
+        { "word1": "\ub41c\uc7a5", "word2": "Soybean paste", "pos": 0 },
+        { "word1": "\ucc38\uae30\ub984", "word2": "Sesame oil", "pos": 0 }
+      ]
+    },
+    {
+      "id": "kr-travel-1",
+      "name": "Travel I",
+      "theme": "Travel",
+      "cards": [
+        { "word1": "\uacf5\ud56d", "word2": "Airport", "pos": 0 },
+        { "word1": "\ud638\ud154", "word2": "Hotel", "pos": 0 },
+        { "word1": "\uc9c0\ub3c4", "word2": "Map", "pos": 0 },
+        { "word1": "\uc5ec\uad8c", "word2": "Passport", "pos": 0 },
+        { "word1": "\ube44\ud589\uae30", "word2": "Airplane", "pos": 0 },
+        { "word1": "\uae30\ucc28", "word2": "Train", "pos": 0 },
+        { "word1": "\ud0dd\uc2dc", "word2": "Taxi", "pos": 0 },
+        { "word1": "\ud45c", "word2": "Ticket", "pos": 0 },
+        { "word1": "\uc9d0", "word2": "Luggage", "pos": 0 },
+        { "word1": "\ucd9c\ubc1c", "word2": "Departure", "pos": 0 }
+      ]
+    },
+    {
+      "id": "kr-travel-2",
+      "name": "Travel II",
+      "theme": "Travel",
+      "cards": [
+        { "word1": "\ub3c4\ucc29", "word2": "Arrival", "pos": 0 },
+        { "word1": "\uc608\uc57d", "word2": "Reservation", "pos": 0 },
+        { "word1": "\uad00\uad11", "word2": "Sightseeing", "pos": 0 },
+        { "word1": "\uc219\uc18c", "word2": "Accommodation", "pos": 0 },
+        { "word1": "\ud658\uc804", "word2": "Currency exchange", "pos": 0 },
+        { "word1": "\uc548\ub0b4", "word2": "Information", "pos": 0 },
+        { "word1": "\ucd9c\uad6c", "word2": "Exit", "pos": 0 },
+        { "word1": "\uc785\uad6c", "word2": "Entrance", "pos": 0 },
+        { "word1": "\ud3b8\ub3c4", "word2": "One-way", "pos": 0 },
+        { "word1": "\uc655\ubcf5", "word2": "Round-trip", "pos": 0 }
+      ]
+    },
+    {
+      "id": "kr-family-1",
+      "name": "Family I",
+      "theme": "Family",
+      "cards": [
+        { "word1": "\uc544\ubc84\uc9c0", "word2": "Father", "pos": 0 },
+        { "word1": "\uc5b4\uba38\ub2c8", "word2": "Mother", "pos": 0 },
+        { "word1": "\ud615", "word2": "Older brother (m.)", "pos": 0 },
+        { "word1": "\ub204\ub098", "word2": "Older sister (m.)", "pos": 0 },
+        { "word1": "\uc624\ube60", "word2": "Older brother (f.)", "pos": 0 },
+        { "word1": "\uc5b8\ub2c8", "word2": "Older sister (f.)", "pos": 0 },
+        { "word1": "\ub3d9\uc0dd", "word2": "Younger sibling", "pos": 0 },
+        { "word1": "\ud560\uc544\ubc84\uc9c0", "word2": "Grandfather", "pos": 0 },
+        { "word1": "\ud560\uba38\ub2c8", "word2": "Grandmother", "pos": 0 },
+        { "word1": "\uc544\uc774", "word2": "Child", "pos": 0 }
+      ]
+    },
+    {
+      "id": "kr-numbers-1",
+      "name": "Numbers I",
+      "theme": "Numbers",
+      "cards": [
+        { "word1": "\ud558\ub098", "word2": "One", "pos": 0 },
+        { "word1": "\ub458", "word2": "Two", "pos": 0 },
+        { "word1": "\uc14b", "word2": "Three", "pos": 0 },
+        { "word1": "\ub137", "word2": "Four", "pos": 0 },
+        { "word1": "\ub2e4\uc12f", "word2": "Five", "pos": 0 },
+        { "word1": "\uc5ec\uc12f", "word2": "Six", "pos": 0 },
+        { "word1": "\uc77c\uacf1", "word2": "Seven", "pos": 0 },
+        { "word1": "\uc5ec\ub35f", "word2": "Eight", "pos": 0 },
+        { "word1": "\uc544\ud649", "word2": "Nine", "pos": 0 },
+        { "word1": "\uc5f4", "word2": "Ten", "pos": 0 }
+      ]
+    },
+    {
+      "id": "kr-weather-1",
+      "name": "Weather I",
+      "theme": "Weather",
+      "cards": [
+        { "word1": "\ub0a0\uc528", "word2": "Weather", "pos": 0 },
+        { "word1": "\ub355\ub2e4", "word2": "Hot", "pos": 2 },
+        { "word1": "\ucda5\ub2e4", "word2": "Cold", "pos": 2 },
+        { "word1": "\ubc14\ub78c", "word2": "Wind", "pos": 0 },
+        { "word1": "\uad6c\ub984", "word2": "Cloud", "pos": 0 },
+        { "word1": "\ub208", "word2": "Snow", "pos": 0 },
+        { "word1": "\ube44", "word2": "Rain", "pos": 0 },
+        { "word1": "\ub9d1\ub2e4", "word2": "Clear (sky)", "pos": 2 },
+        { "word1": "\ud750\ub9ac\ub2e4", "word2": "Cloudy", "pos": 2 },
+        { "word1": "\uc6b0\uc0b0", "word2": "Umbrella", "pos": 0 }
+      ]
+    },
+    {
+      "id": "kr-shopping-1",
+      "name": "Shopping I",
+      "theme": "Shopping",
+      "cards": [
+        { "word1": "\uac00\uac8c", "word2": "Store", "pos": 0 },
+        { "word1": "\uc0ac\ub2e4", "word2": "To buy", "pos": 1 },
+        { "word1": "\ud314\ub2e4", "word2": "To sell", "pos": 1 },
+        { "word1": "\uac00\uaca9", "word2": "Price", "pos": 0 },
+        { "word1": "\uc2f8\ub2e4", "word2": "Cheap", "pos": 2 },
+        { "word1": "\ube44\uc2f8\ub2e4", "word2": "Expensive", "pos": 2 },
+        { "word1": "\uce74\ub4dc", "word2": "Card", "pos": 0 },
+        { "word1": "\ud604\uae08", "word2": "Cash", "pos": 0 },
+        { "word1": "\uc601\uc218\uc99d", "word2": "Receipt", "pos": 0 },
+        { "word1": "\ud560\uc778", "word2": "Discount", "pos": 0 }
+      ]
+    }
+  ]
+}
