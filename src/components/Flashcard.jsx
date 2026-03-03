@@ -32,7 +32,7 @@ export default function Flashcard({
   onSpeakingChange,
 }) {
   const frontText = realismEn
-    ? realismEn.map((p) => p.text).join("")
+    ? realismEn.map((p, i) => p.highlight ? p.text.toLowerCase() : p.text).join("")
     : card.word2;
   const backText = realismKr
     ? realismKr.map((p) => p.text).join("")
@@ -89,13 +89,12 @@ export default function Flashcard({
 
   const frontSpeaking = frontStatus === "started";
   const backSpeaking = backStatus === "started";
-
   return (
     <div className="flashcard" onClick={onFlip}>
       <div className={`flashcard-inner ${flipped ? "flipped" : ""}`}>
         <div className="flashcard-face flashcard-front">
           {realismEn ? (
-            <div className="card-realism">
+            <div className="card-realism" style={{ fontSize: realismEn.map((p) => p.text).join("").length > 150 ? "24px" : "36px" }}>
               {frontSpeaking ? (
                 <FrontText />
               ) : (
@@ -110,7 +109,7 @@ export default function Flashcard({
         </div>
         <div className="flashcard-face flashcard-back">
           {realismKr ? (
-            <div className="card-realism card-realism-kr">
+            <div className="card-realism card-realism-kr" style={{ fontSize: realismEn.map((p) => p.text).join("").length > 150 ? "36px" : "42px" }}>
               {backSpeaking ? (
                 <BackText />
               ) : (
