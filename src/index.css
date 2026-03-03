@@ -704,6 +704,34 @@ button {
   }
 }
 
+/* ---- Speak Button ---- */
+.btn-speak {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color var(--transition);
+}
+
+.btn-speak:hover {
+  color: var(--text-dim);
+}
+
+.btn-speak.speaking {
+  color: var(--accent);
+  animation: speakPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes speakPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
 /* Disabled action buttons during animation */
 .btn-action:disabled {
   opacity: 0.4;

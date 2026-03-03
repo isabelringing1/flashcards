@@ -1,7 +1,15 @@
 {
   "permissions": {
     "allow": [
-      "Bash(npm run build:*)"
+      "Bash(npm run build:*)",
+      "WebFetch(domain:www.npmjs.com)",
+      "WebSearch",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:rtts.vercel.app)",
+      "WebFetch(domain:edvins.io)",
+      "WebFetch(domain:www.assemblyai.com)",
+      "Bash(npm install:*)",
+      "Bash(npx vite build:*)"
     ]
   }
 }

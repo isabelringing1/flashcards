@@ -44,7 +44,9 @@ export default function FlashcardDeck({ cards, name, onShuffle, realismMode }) {
   const [flipped, setFlipped] = useState(false);
   const [exitDirection, setExitDirection] = useState(null);
   const [animating, setAnimating] = useState(false);
+  const [isSpeaking, setIsSpeaking] = useState(false);
 
+  const speechActionsRef = useRef(null);
   const xCountsRef = useRef({});
   const displayCountsRef = useRef({});
 
@@ -61,8 +63,14 @@ export default function FlashcardDeck({ cards, name, onShuffle, realismMode }) {
   const done = idx >= deck.length;
   const card = deck[idx];
 
+  function stopSpeech() {
+    if (speechActionsRef.current) speechActionsRef.current.stop();
+    setIsSpeaking(false);
+  }
+
   function markKnown() {
     if (animating) return;
+    stopSpeech();
     setKnown((k) => [...k, card]);
     setExitDirection("right");
     setAnimating(true);
@@ -70,6 +78,7 @@ export default function FlashcardDeck({ cards, name, onShuffle, realismMode }) {
 
   function markUnknown() {
     if (animating) return;
+    stopSpeech();
     setUnknown((u) => [...u, card]);
     setExitDirection("left");
     setAnimating(true);
@@ -208,8 +217,37 @@ export default function FlashcardDeck({ cards, name, onShuffle, realismMode }) {
           onFlip={() => setFlipped((f) => !f)}
           realismEn={realismEn}
           realismKr={realismKr}
+          speechActionsRef={speechActionsRef}
+          onSpeakingChange={setIsSpeaking}
         />
       </div>
+
+      <button
+        className={`btn-speak${isSpeaking ? " speaking" : ""}`}
+        onClick={() => {
+          if (isSpeaking) {
+            stopSpeech();
+          } else if (speechActionsRef.current) {
+            speechActionsRef.current.speak(!flipped);
+          }
+        }}
+        title={isSpeaking ? "Stop" : "Speak"}
+      >
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+          <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
+          <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
+        </svg>
+      </button>
 
       <div className="deck-actions">
         <button
