@@ -1,0 +1,14 @@
+[
+  {
+    "en": "What's {word1}, idiot?",
+    "kr": "{word2}{이/가} 뭐야, 멍청아?"
+  },
+  {
+    "en": "Are you fucking kidding me? This is the third time around and you still can't remember {word1}?",
+    "kr": "야, 씨발 장난하냐? 세 번째라고. 아직도 {word2}도 못 외워?"
+  },
+  {
+    "en": "We sacrificed everything for you to come to this country, but at what cost? You've forsaken your heritage and filled the void with boba and subtitled k-dramas and call it culture. You don't even know what {word} is…",
+    "kr": "너 이 나라 오라고 우리가 다 희생했어. 근데 그게 다 무슨 소용이야? 네 뿌리는 다 버리고, 빈자리는 버블티랑 자막 케이드라마로 채워놓고 그걸 문화라고 하냐? 넌 {word2}{이/가} 뭔지도 모르잖아…"
+  }
+]

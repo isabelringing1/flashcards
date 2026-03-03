@@ -30,7 +30,9 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+    sans-serif;
   background: var(--bg);
   color: var(--text);
   line-height: 1.5;
@@ -205,6 +207,51 @@ button {
   color: var(--text);
 }
 
+/* ---- Toggle Switch ---- */
+.toggle-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 4px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.toggle-label {
+  font-size: 13px;
+  color: var(--text-dim);
+  font-weight: 500;
+}
+
+.toggle-switch {
+  width: 36px;
+  height: 20px;
+  background: var(--border);
+  border-radius: 10px;
+  position: relative;
+  transition: background var(--transition);
+  flex-shrink: 0;
+}
+
+.toggle-switch.toggle-on {
+  background: var(--green);
+}
+
+.toggle-knob {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  background: var(--text);
+  border-radius: 50%;
+  transition: transform var(--transition);
+}
+
+.toggle-on .toggle-knob {
+  transform: translateX(16px);
+}
+
 /* ---- Flashcard ---- */
 .flashcard {
   width: 520px;
@@ -253,6 +300,26 @@ button {
 
 .card-word-kr {
   font-size: 42px;
+}
+
+.card-realism {
+  font-size: 36px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  text-align: center;
+  line-height: 1.4;
+  color: rgba(241, 245, 249, 0.6);
+  overflow-y: auto;
+  max-height: 100%;
+  padding: 0 4px;
+}
+
+.card-realism-kr {
+  font-size: 42px;
+}
+
+.realism-highlight {
+  color: var(--text);
 }
 
 .card-hint {
@@ -605,18 +672,36 @@ button {
 }
 
 @keyframes cardExitLeft {
-  0% { transform: translateX(0) rotate(0); opacity: 1; }
-  100% { transform: translateX(-120px) rotate(-8deg); opacity: 0; }
+  0% {
+    transform: translateX(0) rotate(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-120px) rotate(-8deg);
+    opacity: 0;
+  }
 }
 
 @keyframes cardExitRight {
-  0% { transform: translateX(0) rotate(0); opacity: 1; }
-  100% { transform: translateX(120px) rotate(8deg); opacity: 0; }
+  0% {
+    transform: translateX(0) rotate(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(120px) rotate(8deg);
+    opacity: 0;
+  }
 }
 
 @keyframes cardEnter {
-  0% { transform: scale(0.95); opacity: 0; }
-  100% { transform: scale(1); opacity: 1; }
+  0% {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 /* Disabled action buttons during animation */

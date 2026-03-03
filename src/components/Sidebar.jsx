@@ -61,6 +61,8 @@ export default function Sidebar({
   allSets,
   onSelectSet,
   hasRemixSets,
+  realismMode,
+  onToggleRealism,
 }) {
   const grouped = {}
   for (const set of allSets) {
@@ -94,6 +96,12 @@ export default function Sidebar({
         >
           Random Set
         </button>
+        <label className="toggle-row" onClick={onToggleRealism}>
+          <span className="toggle-label">Realism Mode</span>
+          <span className={`toggle-switch ${realismMode ? 'toggle-on' : ''}`}>
+            <span className="toggle-knob" />
+          </span>
+        </label>
       </div>
 
       {previousSets.length > 0 && (

@@ -22,6 +22,9 @@ export default function App() {
   const [activeDeck, setActiveDeck] = useState(null)
   const [activeDeckName, setActiveDeckName] = useState('')
   const [deckKey, setDeckKey] = useState(0)
+  const [realismMode, setRealismMode] = useState(() => {
+    return localStorage.getItem('flashcards_realism') === 'true'
+  })
 
   const loadSet = useCallback((set, name) => {
     setActiveDeck([...set.cards])
@@ -91,6 +94,11 @@ export default function App() {
         allSets={weekly.allSets}
         onSelectSet={(set) => loadSet(set)}
         hasRemixSets={hasRemixSets}
+        realismMode={realismMode}
+        onToggleRealism={() => setRealismMode((r) => {
+          localStorage.setItem('flashcards_realism', String(!r))
+          return !r
+        })}
       />
       <main className="main">
         {activeDeck && activeDeck.length > 0 ? (
@@ -99,6 +107,7 @@ export default function App() {
             cards={activeDeck}
             name={activeDeckName}
             onShuffle={handleShuffle}
+            realismMode={realismMode}
           />
         ) : (
           <div className="empty-state">
