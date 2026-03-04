@@ -15,10 +15,10 @@ function RealismContent({ parts }) {
 
 const highlightStyle = {
   style: {
-    backgroundColor: "rgba(107, 138, 205, 0.3)",
+    backgroundColor: "rgba(155, 126, 216, 0.2)",
     borderRadius: "4px",
     padding: "0 2px",
-    color: "#fbbf24",
+    color: "#d4940a",
   },
 };
 
@@ -94,7 +94,7 @@ export default function Flashcard({
       <div className={`flashcard-inner ${flipped ? "flipped" : ""}`}>
         <div className="flashcard-face flashcard-front">
           {realismEn ? (
-            <div className="card-realism" style={{ fontSize: realismEn.map((p) => p.text).join("").length > 150 ? "24px" : "36px" }}>
+            <div className="card-realism" style={{ fontSize: realismEn.map((p) => p.text).join("").length > 150 ? "22px" : "36px" }}>
               {frontSpeaking ? (
                 <FrontText />
               ) : (
@@ -109,7 +109,7 @@ export default function Flashcard({
         </div>
         <div className="flashcard-face flashcard-back">
           {realismKr ? (
-            <div className="card-realism card-realism-kr" style={{ fontSize: realismEn.map((p) => p.text).join("").length > 150 ? "36px" : "42px" }}>
+            <div className="card-realism card-realism-kr" style={{ fontSize: realismEn.map((p) => p.text).join("").length > 150 ? "26px" : "42px" }}>
               {backSpeaking ? (
                 <BackText />
               ) : (

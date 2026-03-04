@@ -8,30 +8,30 @@
 }
 
 :root {
-  --bg: #1a2332;
-  --bg-sidebar: #1e2738;
-  --bg-card: #243040;
-  --bg-card-hover: #2c3a4c;
-  --bg-elevated: #283548;
-  --border: #344456;
-  --text: #f1f5f9;
-  --text-dim: #a0b1c8;
-  --text-muted: #6b7f96;
-  --accent: #6b8acd;
-  --accent-hover: #8ba4db;
-  --green: #4ade80;
-  --green-bg: rgba(74, 222, 128, 0.1);
-  --red: #f87171;
-  --red-bg: rgba(248, 113, 113, 0.1);
-  --amber: #fbbf24;
-  --radius: 12px;
-  --radius-sm: 8px;
+  --bg: #faf6f0;
+  --bg-sidebar: #f0e9de;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f5efe6;
+  --bg-elevated: #ffffff;
+  --border: #e4d9ca;
+  --text: #3d2e22;
+  --text-dim: #7d6a56;
+  --text-muted: #a89683;
+  --accent: #9b7ed8;
+  --accent-hover: #8668c4;
+  --green: #5cba7d;
+  --green-bg: rgba(92, 186, 125, 0.12);
+  --red: #e06767;
+  --red-bg: rgba(224, 103, 103, 0.12);
+  --amber: #d4940a;
+  --radius: 16px;
+  --radius-sm: 10px;
   --transition: 0.2s ease;
 }
 
 body {
   font-family:
-    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+    "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     sans-serif;
   background: var(--bg);
   color: var(--text);
@@ -140,10 +140,19 @@ button {
   font-family: "Gamja Flower", sans-serif;
   font-size: 42px;
   font-weight: 700;
-  color: var(--text);
+  color: var(--accent);
   padding: 0 4px 16px;
   border-bottom: 1px solid var(--border);
   margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.sidebar-brand-icon {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
 }
 
 .sidebar-section {
@@ -158,7 +167,7 @@ button {
 
 .sidebar-title {
   font-size: 11px;
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--text-muted);
@@ -192,7 +201,7 @@ button {
   border: none;
   color: var(--text-dim);
   padding: 6px 12px;
-  border-radius: 6px;
+  border-radius: 8px;
   font-size: 13px;
   transition: all var(--transition);
   position: relative;
@@ -244,9 +253,10 @@ button {
   left: 2px;
   width: 16px;
   height: 16px;
-  background: var(--text);
+  background: #fff;
   border-radius: 50%;
   transition: transform var(--transition);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
 }
 
 .toggle-on .toggle-knob {
@@ -285,7 +295,7 @@ button {
   border-radius: var(--radius);
   background: var(--bg-card);
   border: 1px solid var(--border);
-  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 24px rgba(139, 115, 85, 0.1);
   padding: 32px;
 }
 
@@ -295,7 +305,7 @@ button {
 
 .card-word {
   font-size: 36px;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: -0.01em;
 }
 
@@ -309,7 +319,7 @@ button {
   letter-spacing: -0.01em;
   text-align: center;
   line-height: 1.4;
-  color: rgba(241, 245, 249, 0.6);
+  color: rgba(61, 46, 34, 0.4);
   overflow-y: auto;
   max-height: 100%;
   padding: 0 4px;
@@ -349,8 +359,10 @@ button {
 }
 
 .deck-name {
-  font-size: 18px;
-  font-weight: 600;
+  font-family: "Gamja Flower", sans-serif;
+  font-size: 34px;
+  font-weight: 700;
+  color: var(--text);
 }
 
 .deck-header-right {
@@ -374,7 +386,7 @@ button {
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  border: 2px solid;
+  border: 2.5px solid;
   background: transparent;
   display: flex;
   align-items: center;
@@ -389,7 +401,7 @@ button {
 
 .btn-known:hover {
   background: var(--green);
-  color: var(--bg);
+  color: #fff;
 }
 
 .btn-unknown {
@@ -399,7 +411,7 @@ button {
 
 .btn-unknown:hover {
   background: var(--red);
-  color: var(--bg);
+  color: #fff;
 }
 
 .progress-bar {
@@ -428,7 +440,8 @@ button {
 }
 
 .deck-done h2 {
-  font-size: 28px;
+  font-family: "Gamja Flower", sans-serif;
+  font-size: 36px;
   font-weight: 700;
 }
 
@@ -448,12 +461,12 @@ button {
 
 .stat-known {
   background: var(--green-bg);
-  border-color: rgba(74, 222, 128, 0.2);
+  border-color: rgba(92, 186, 125, 0.25);
 }
 
 .stat-unknown {
   background: var(--red-bg);
-  border-color: rgba(248, 113, 113, 0.2);
+  border-color: rgba(224, 103, 103, 0.25);
 }
 
 .stat-num {
@@ -493,7 +506,7 @@ button {
 .popup-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.55);
+  background: rgba(61, 46, 34, 0.4);
   backdrop-filter: blur(4px);
   display: flex;
   align-items: center;
@@ -504,13 +517,13 @@ button {
 .popup {
   background: var(--bg-elevated);
   border: 1px solid var(--border);
-  border-radius: 16px;
+  border-radius: 20px;
   padding: 32px;
   width: 440px;
   max-height: 80vh;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 16px 60px rgba(139, 115, 85, 0.18);
 }
 
 .popup-header {
@@ -528,7 +541,8 @@ button {
 }
 
 .popup-set-name {
-  font-size: 24px;
+  font-family: "Gamja Flower", sans-serif;
+  font-size: 30px;
   font-weight: 700;
   color: var(--text);
 }
@@ -547,11 +561,11 @@ button {
   gap: 12px;
   align-items: center;
   padding: 8px 12px;
-  border-radius: 6px;
+  border-radius: 8px;
 }
 
 .popup-row:nth-child(odd) {
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(61, 46, 34, 0.03);
 }
 
 .popup-word-kr {
@@ -565,7 +579,7 @@ button {
   font-weight: 600;
   text-transform: uppercase;
   color: var(--accent);
-  background: rgba(107, 138, 205, 0.14);
+  background: rgba(155, 126, 216, 0.12);
   padding: 2px 8px;
   border-radius: 20px;
   white-space: nowrap;
@@ -603,17 +617,17 @@ button {
 
 .diff-easy {
   color: var(--green);
-  background: rgba(74, 222, 128, 0.15);
+  background: rgba(92, 186, 125, 0.15);
 }
 
 .diff-inter {
   color: var(--amber);
-  background: rgba(251, 191, 36, 0.15);
+  background: rgba(212, 148, 10, 0.15);
 }
 
 .diff-adv {
   color: var(--red);
-  background: rgba(248, 113, 113, 0.15);
+  background: rgba(224, 103, 103, 0.15);
 }
 
 /* ---- Sidebar Tooltips ---- */
@@ -628,7 +642,7 @@ button {
   line-height: 1.7;
   z-index: 1000;
   pointer-events: none;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 8px 30px rgba(139, 115, 85, 0.15);
   min-width: 200px;
   max-width: 320px;
   max-height: 300px;
@@ -642,7 +656,7 @@ button {
   color: var(--text-dim);
   width: 32px;
   height: 32px;
-  border-radius: 6px;
+  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;

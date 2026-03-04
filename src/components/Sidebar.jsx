@@ -72,7 +72,7 @@ export default function Sidebar({
 
   return (
     <aside className="sidebar">
-      <div className="sidebar-brand">Flashcards</div>
+      <div className="sidebar-brand"><img src="/flower.png" alt="" className="sidebar-brand-icon" />Flashcards</div>
 
       <div className="sidebar-section">
         <button
@@ -97,7 +97,7 @@ export default function Sidebar({
           Random Set
         </button>
         <label className="toggle-row" onClick={onToggleRealism}>
-          <span className="toggle-label">Realism Mode</span>
+          <span className="toggle-label">Diasphora Mode</span>
           <span className={`toggle-switch ${realismMode ? 'toggle-on' : ''}`}>
             <span className="toggle-knob" />
           </span>
